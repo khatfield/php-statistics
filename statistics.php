@@ -108,6 +108,7 @@ class Statistics
      */
     public function addSet($set)
     {
+        $this->clearAll();
         sort($set, SORT_NUMERIC);
         $this->set              = array_values($set);
         $this->set_data['set_size'] = count($this->set);
@@ -168,8 +169,17 @@ class Statistics
         } else {
             krsort($this->freqs, SORT_NUMERIC);
         }
+        $length = 0;
+        $tmp    = 0;
+        foreach($this->freqs as $nums){
+            $tmp += count($nums);
+            $length++;
+            if($tmp >= $count){
+                break;
+            }
+        }
         
-        return array_slice($this->freqs, 0, $count, true);
+        return array_slice($this->freqs, 0, $length, true);
     }
 
     /**
@@ -294,6 +304,21 @@ class Statistics
             $this->set_data['median'] = $this->set[$mid];
         }
 
+        return $this;
+    }
+
+    /**
+     * Clears all set data; 
+     *
+     * @return  Statistics Returns self for method chaining 
+     */
+    private function clearAll()
+    {
+        $this->set          = array();
+        $this->set_data     = array();
+        $this->freqs        = array();
+        $this->freqs_by_num = array();
+        
         return $this;
     }
 }
