@@ -296,11 +296,11 @@ class Statistics
     {
         if($this->set_count % 2 == 0){
             //even number of elements
-            $mid = $this->set_data['set_size'] / 2;
-            $this->set_data['median'] = ($this->set[$mid] + $this->set[($mid + 1)] / 2);
+            $mid = ($this->set_data['set_size'] / 2) - 1;
+            $this->set_data['median'] = (($this->set[$mid] + $this->set[($mid + 1)]) / 2);
         } else {
             //odd number of elements
-            $mid = ceil($this->set_data['set_size'] / 2);
+            $mid = floor($this->set_data['set_size'] / 2);
             $this->set_data['median'] = $this->set[$mid];
         }
 
