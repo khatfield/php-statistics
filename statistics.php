@@ -221,30 +221,14 @@ class Statistics
      */
     private function setFreqs()
     {
-        $old   = null;
-        $count = 0;
-        foreach($this->set as $value){
-            if($value != $old){
-                if(!is_null($old)){
-                    if(!isset($this->freqs[$count])){
-                        $this->freqs[$count]  = array();
-                    }
-                    $this->freqs[$count][]    = $old;
-                    
-                    $this->freqs_by_num[$old] = $count;
-                }
-                $old   = $value;
-                $count = 0;
-            }
-            $count++;
-        }
+        $this->freqs_by_num = array_count_values($this->set);
 
-        if(!isset($this->freqs[$count])){
-            $this->freqs[$count]  = array();
+        foreach($this->freqs_by_num as $value => $count){
+            if(!isset($this->freqs[$count])){
+                $this->freqs[$count]  = array();
+            }
+            $this->freqs[$count][]    = $value;
         }
-        $this->freqs[$count][]    = $old;
-        
-        $this->freqs_by_num[$old] = $count;
 
         ksort($this->freqs);
         asort($this->freqs_by_num);
