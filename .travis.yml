@@ -1,0 +1,43 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+
+env:
+  global:
+    - REPO_NAME=cakephp-statistics
+    - PLUGIN_NAME=Statistics
+    - REQUIRE=""
+    - CAKE_VERSION=master
+
+  matrix:
+    - CAKE_VERSION=2.3
+    - CAKE_VERSION=2.4
+    - CAKE_VERSION=2.5
+
+matrix:
+  include:
+    - php: 5.3
+      env:
+        - COVERALLS=1
+    - php: 5.3
+      env:
+        - PHPCS=1 PHPCS_NO_WARNINGS=1
+    - php: 5.3
+      env:
+        - FOC_VALIDATE=1
+
+before_script:
+  - git clone -b no-warnings-support-for-phpcs https://github.com/tersmitten/travis.git --depth 1 ../travis
+  - ../travis/before_script.sh
+
+script:
+  - ../travis/script.sh
+
+after_success:
+  - ../travis/after_success.sh
+
+notifications:
+  email: false
