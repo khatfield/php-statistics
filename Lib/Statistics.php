@@ -95,7 +95,7 @@ class Statistics {
 			return key($lastTwo);
 		}
 
-		throw new StatisticsError('There is not exactly one most common value');
+		throw new StatisticsError(__d('statistics', 'There is not exactly one most common value.'));
 	}
 
 /**
