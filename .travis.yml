@@ -24,13 +24,13 @@ matrix:
         - COVERALLS=1
     - php: 5.3
       env:
-        - PHPCS=1 PHPCS_NO_WARNINGS=1
+        - PHPCS=1 PHPCS_ARGS="-p --extensions=php --standard=CakePHP -n ."
     - php: 5.3
       env:
         - FOC_VALIDATE=1
 
 before_script:
-  - git clone -b no-warnings-support-for-phpcs https://github.com/tersmitten/travis.git --depth 1 ../travis
+  - git clone -b master https://github.com/FriendsOfCake/travis.git --depth 1 ../travis
   - ../travis/before_script.sh
 
 script:
