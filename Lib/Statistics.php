@@ -146,6 +146,16 @@ class Statistics {
 		return sqrt(self::variance($values, $sample));
 	}
 
+/**
+ * Calculates the range for a given set of values.
+ *
+ * @param array $values The input values
+ * @return float|integer The range of values as an integer or float
+ */
+	public static function range($values) {
+		return self::max($values) - self::min($values);
+	}
+
 }
 
 /**

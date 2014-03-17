@@ -335,4 +335,34 @@ class StatisticsTest extends CakeTestCase {
 		$this->assertEquals($expected, $result, '', pow(10, -4));
 	}
 
+	public function testRange() {
+		//
+		// Integers (> 0)
+		//
+		$values = array(4, 6, 10, 15, 18);
+		$result = Statistics::range($values);
+		$expected = 14;
+
+		$this->assertIdentical($expected, $result);
+
+		//
+		// Integers (< 0 and > 0)
+		//
+
+		$values = array(4, 6, 10, 15, 18, -18);
+		$result = Statistics::range($values);
+		$expected = 36;
+
+		$this->assertIdentical($expected, $result);
+
+		//
+		// Floats
+		//
+		$values = array(11, 13, 4.3, 15.5, 14);
+		$result = Statistics::range($values);
+		$expected = 11.2;
+
+		$this->assertIdentical($expected, $result);
+	}
+
 }

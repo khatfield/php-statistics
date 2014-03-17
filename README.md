@@ -62,3 +62,8 @@ Statistics::variance(array(1, 2, 3), false);
 Statistics::standardDeviation(array(1, 2, 3));
 Statistics::standardDeviation(array(1, 2, 3), false);
 ```
+
+### Range
+```
+Statistics::range(array(4, 6, 10, 15, 18));
+```
