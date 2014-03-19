@@ -11,11 +11,11 @@
   "authors": [
     {
       "name": "tersmitten",
-			"homepage": "https://github.com/tersmitten/cakephp-statistics/contributors"
+      "homepage": "https://github.com/tersmitten/cakephp-statistics/contributors"
     }
   ],
   "require": {
-		"php": ">=5.3.10",
+    "php": ">=5.3.10",
     "composer/installers": "*"
   },
   "support": {
