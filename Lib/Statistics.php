@@ -101,7 +101,7 @@ class Statistics {
 /**
  * Calculates the square of value - mean.
  *
- * @param array $values The input values
+ * @param float|integer $value The input value
  * @param float|integer $mean The mean
  * @return float|integer The square of value - mean
  */
