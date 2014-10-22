@@ -1,0 +1,27 @@
+{
+	"name": "tersmitten/cakephp-statistics",
+	"description": "A Statistics Plugin for CakePHP",
+	"type": "cakephp-plugin",
+	"keywords": [
+		"cakephp", "statistics"
+	],
+	"homepage": "http://github.com/tersmitten/cakephp-statistics",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "tersmitten",
+			"homepage": "https://github.com/tersmitten/cakephp-statistics/contributors"
+		}
+	],
+	"require": {
+		"php": ">=5.3.10",
+		"composer/installers": "~1.0"
+	},
+	"support": {
+		"issues": "https://github.com/tersmitten/cakephp-statistics/issues",
+		"source": "https://github.com/tersmitten/cakephp-statistics"
+	},
+	"extra": {
+		"installer-name": "Statistics"
+	}
+}
